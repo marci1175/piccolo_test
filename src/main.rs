@@ -22,7 +22,7 @@ fn main() {
     });
 
     let executor = lua.enter(|ctx| {
-        let closure = Closure::load(ctx, None, &br#"data_store_test()"#[..]).unwrap();
+        let closure = Closure::load(ctx, None, &br#"data_store_test(); print("Hello from Lua!")"#[..]).unwrap();
 
         ctx.stash(Executor::start(
             ctx,
